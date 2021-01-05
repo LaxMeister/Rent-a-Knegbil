@@ -9,10 +9,12 @@ export default async function ChangeOrderInfo() {
   let carModel = JSON.parse(sessionStorage.getItem("carModel"));
   let carDetail = JSON.parse(sessionStorage.getItem("carDetails"));
   let carPrice = JSON.parse(sessionStorage.getItem("carPrice"));
+  let carType = JSON.parse(sessionStorage.getItem("carType"));
 
   getCarInfoDetails.innerHTML = "Märke: " + carName + " | Modell: " + carModel;
   getCarInfoDetails2.innerHTML = carDetail;
-  getCarInfoDetails3.innerHTML = "Pris: " + carPrice + " kr/dygn";
+  getCarInfoDetails3.innerHTML =
+    "Typ: " + carType + " | Pris: " + carPrice + " kr/dygn";
 
   submitButton.addEventListener("click", (e) => {
     e.preventDefault();

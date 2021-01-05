@@ -1,0 +1,255 @@
+.list-container {
+  /* border: 3px solid purple; */
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  justify-items: center;
+  flex-wrap: wrap;
+  height: 100%;
+  top: 7rem;
+}
+
+.titlebox {
+  /* border: 3px solid red; */
+  color: #c7c7c7;
+  width: 10vw;
+  height: 7vh;
+  position: relative;
+  font-size: 2.5vh;
+  z-index: 3;
+  text-shadow: 0px 5px 5px rgb(78, 78, 78), 5px 5px 3px rgb(78, 78, 78),
+    1px -1px 0 rgb(78, 78, 78), -1px -1px 0 rgb(78, 78, 78);
+}
+
+p {
+  color: white;
+  font-size: 3rem;
+}
+
+.btnDiv {
+  position: relative;
+  right: 35rem;
+  padding-bottom: 1rem;
+}
+
+.sortbtn,
+.sortbtn2,
+.rentBtn,
+.detailsBtn {
+  /* width: 6rem;
+    height: 2rem; */
+  margin-left: 0.5rem;
+  border: none;
+  background: #999999;
+  background: linear-gradient(#8f8f8f, #4d4d4d);
+  border-radius: 8px;
+  padding: 10px 19px;
+  color: #ffffff;
+  display: inline-block;
+  font: normal bold 10px/1 "Roboto", sans-serif;
+  text-align: center;
+}
+
+.sortbtn:focus,
+.sortbtn2:focus,
+.rentBtn:focus,
+.detailsBtn:focus,
+.modalRentBtn:focus,
+.modalCloseBtn:focus,
+.submitButton:focus,
+.edit-orderBtn:focus {
+  outline: none;
+}
+
+.sortbtn:hover,
+.sortbtn2:hover,
+.rentBtn:hover,
+.detailsBtn:hover,
+.modalRentBtn:hover,
+.modalCloseBtn:hover,
+.submitButton:hover,
+.edit-orderBtn:hover {
+  background: #585858;
+}
+.sortbtn:active,
+.sortbtn2:active,
+.rentBtn:active,
+.detailsBtn:active,
+.modalRentBtn:active,
+.modalCloseBtn:active,
+.submitButton:active,
+.edit-orderBtn:active {
+  color: #1a1a1a;
+}
+
+.carList {
+  position: relative;
+  background-color: #575757;
+  border-radius: 0.5rem;
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 70%;
+  color: #d8d8d8;
+  font-size: 1.5rem;
+  padding: 1rem;
+  -webkit-box-shadow: 12px 20px 33px 6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 12px 20px 33px 6px rgba(0, 0, 0, 0.75);
+  box-shadow: 12px 20px 33px 6px rgba(0, 0, 0, 0.75);
+}
+
+.Cars {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 45vw;
+  background-color: #707070;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  list-style-type: none;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 12px 20px 33px 6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 12px 20px 33px 6px rgba(0, 0, 0, 0.75);
+  box-shadow: 12px 20px 33px 6px rgba(0, 0, 0, 0.75);
+}
+
+.Cars li {
+  flex: 1;
+}
+
+/* MODAL */
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  border-radius: 1rem;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #c0c0c0;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  top: 10rem;
+  border-radius: 1rem;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 10rem;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 10rem;
+    opacity: 1;
+  }
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem 1rem 0 0;
+  height: 4rem;
+  padding: 2px 46px;
+  background-color: #8b2d86;
+  color: white;
+}
+
+.modal-body {
+  margin-top: 2rem;
+  height: 20vh;
+  padding: 2px 16px;
+}
+
+.hrLine {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: 2px;
+  border-width: 0;
+  color: gray;
+  background-color: gray;
+}
+
+.modal-body-p,
+.modal-body-p2 {
+  color: #000;
+}
+
+.modalRentBtn,
+.modalCloseBtn {
+  position: relative;
+  margin-left: 0.5rem;
+  border: none;
+  background: #999999;
+  background: linear-gradient(#8f8f8f, #4d4d4d);
+  border-radius: 8px;
+  padding: 10px 19px;
+  color: #ffffff;
+  display: inline-block;
+  font: normal bold 30px/1 "Roboto", sans-serif;
+  text-align: center;
+}
+
+.modalRentBtn {
+  margin-left: 80rem;
+  top: -2.5rem;
+}
+.modalCloseBtn {
+  top: -2.5rem;
+}

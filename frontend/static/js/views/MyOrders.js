@@ -127,6 +127,7 @@ export default function MyOrders() {
         sessionStorage.setItem("carModel", JSON.stringify(car.model));
         sessionStorage.setItem("carPrice", JSON.stringify(car.price));
         sessionStorage.setItem("carDetails", JSON.stringify(car.details));
+        sessionStorage.setItem("carType", JSON.stringify(car.type));
       });
     setTimeout(() => {
       window.location.href = "/OldOrder";

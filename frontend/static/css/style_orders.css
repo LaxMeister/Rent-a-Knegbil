@@ -1,0 +1,157 @@
+.order-container {
+  /* border: 3px solid purple; */
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  justify-items: center;
+  flex-wrap: wrap;
+  height: 100%;
+  top: 7rem;
+}
+
+.titlebox-order {
+  /* border: 3px solid red; */
+  color: #c7c7c7;
+  width: 15vw;
+  height: 7vh;
+  position: relative;
+  font-size: 2.5vh;
+  z-index: 3;
+  text-shadow: 0px 5px 5px rgb(78, 78, 78), 5px 5px 3px rgb(78, 78, 78),
+    1px -1px 0 rgb(78, 78, 78), -1px -1px 0 rgb(78, 78, 78);
+}
+
+.table-container {
+  /* border: 3px solid purple; */
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  justify-items: center;
+  flex-wrap: wrap;
+  height: 100%;
+  top: 7rem;
+}
+
+.inactive-orders h2,
+.active-orders h2 {
+  /* border: 3px solid red; */
+  color: #c7c7c7;
+  position: relative;
+  font-size: 2.5vh;
+  z-index: 3;
+  text-shadow: 0px 5px 5px rgb(78, 78, 78), 5px 5px 3px rgb(78, 78, 78),
+    1px -1px 0 rgb(78, 78, 78), -1px -1px 0 rgb(78, 78, 78);
+}
+
+.inactive-orders {
+  margin-right: 10rem;
+}
+
+.active-orders {
+  margin-left: 10rem;
+}
+
+table.inactive-table,
+table.active-table {
+  background: #c7c7c7;
+  border: 1px solid #585858;
+  border-radius: 13px;
+  border-spacing: 0;
+  -webkit-box-shadow: 12px 20px 33px 6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 12px 20px 33px 6px rgba(0, 0, 0, 0.75);
+  box-shadow: 12px 20px 33px 6px rgba(0, 0, 0, 0.75);
+}
+table.inactive-table th,
+table.active-table th {
+  color: #c7c7c7;
+  background: #585858;
+}
+
+.th1 {
+  border-radius: 10px 0px 0px 0px;
+}
+.th2 {
+  border-radius: 0px 10px 0px 0px;
+}
+
+table.inactive-table td,
+table.active-table td,
+table.active-table th,
+table.inactive-table th {
+  border-bottom: 1px solid #585858;
+  padding: 10px;
+}
+
+table.inactive-table td,
+table.active-table td {
+  border: 1px solid #585858;
+}
+
+table.inactive-table tr:first-child td,
+table.active-table tr:first-child td {
+  border-top: 0;
+}
+table.inactive-table tr td:first-child,
+table.active-table tr td:first-child {
+  border-left: 0;
+}
+table.inactive-table tr:last-child td,
+table.active-table tr:last-child td {
+  border-bottom: 0;
+}
+table.inactive-table tr td:last-child,
+table.active-table tr td:last-child {
+  border-right: 0;
+}
+
+table.inactive-table th,
+table.active-table th {
+  border: 1px solid #383838;
+}
+
+table.inactive-table tr th:first-child,
+table.active-table tr th:first-child {
+  border-left: 0;
+  border-top: 0;
+}
+
+table.inactive-table tr th:last-child,
+table.active-table tr th:last-child {
+  border-right: 0;
+  border-top: 0;
+}
+
+table.inactive-table tr:first-child th,
+table.active-table tr:first-child th {
+  border-top: none;
+}
+
+.edit-orderBtn {
+  margin-top: 0.5rem;
+  border: none;
+  background: #999999;
+  background: linear-gradient(#8f8f8f, #4d4d4d);
+  border-radius: 8px;
+  padding: 10px 19px;
+  color: #ffffff;
+  display: inline-block;
+  font: normal bold 10px/1 "Roboto", sans-serif;
+  text-align: center;
+}
+
+.rows,
+.old-rows {
+  cursor: pointer;
+}
+
+.rows:hover,
+.old-rows:hover {
+  background: #8f8f8f;
+  border-radius: 0px 0px 10px 10px;
+}

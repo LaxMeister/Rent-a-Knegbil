@@ -69,7 +69,11 @@ export default async function RentList() {
                 myCars[getNodeID - 1].model;
               insideModalBody.innerText = myCars[getNodeID - 1].details;
               insideModalBody2.innerText =
-                " Pris: " + myCars[getNodeID - 1].price + " kr/dygn";
+                "Typ: " +
+                myCars[getNodeID - 1].type +
+                " | Pris: " +
+                myCars[getNodeID - 1].price +
+                " kr/dygn";
               modalRentBtn.onclick = () => fromModalGoToRentCar();
               displayModal();
             } else {
@@ -149,6 +153,10 @@ export default async function RentList() {
         "carDetails",
         JSON.stringify(myCars[getNodeID - 1].details)
       );
+      sessionStorage.setItem(
+        "carType",
+        JSON.stringify(myCars[getNodeID - 1].type)
+      );
       myModal.style.display = "block";
     }
   }
@@ -191,6 +199,10 @@ export default async function RentList() {
       sessionStorage.setItem(
         "carDetails",
         JSON.stringify(myCars[getNodeID - 1].details)
+      );
+      sessionStorage.setItem(
+        "carType",
+        JSON.stringify(myCars[getNodeID - 1].type)
       );
       window.location.href = "/rentCar";
     }

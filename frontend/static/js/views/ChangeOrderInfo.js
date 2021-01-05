@@ -18,7 +18,8 @@ export default async function ChangeOrderInfo() {
       getCarInfoDetails.innerHTML =
         "Märke: " + car.name + " | Modell: " + car.model;
       getCarInfoDetails2.innerHTML = car.details;
-      getCarInfoDetails3.innerHTML = "Pris: " + car.price + " kr/dygn";
+      getCarInfoDetails3.innerHTML =
+        "Typ: " + car.type + " | Pris: " + car.price + " kr/dygn";
     });
 
   submitButton.addEventListener("click", (e) => {
