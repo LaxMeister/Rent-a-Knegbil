@@ -11,4 +11,4 @@ app.get("/*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "frontend", "index.html"));
 });
 
-app.listen(process.env.PORT || 5001, () => console.log("Server running..."));
+app.listen(process.env.PORT || 5002, () => console.log("Server running..."));

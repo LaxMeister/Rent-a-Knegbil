@@ -9,8 +9,8 @@ export default async function RentList() {
   sortBtn.onclick = () => sortName();
   let sortBtn2 = document.createElement("button");
   sortBtn2.classList.add("sortbtn2");
-  sortBtn2.innerHTML = "Sortera modell";
-  sortBtn2.onclick = () => sortModel();
+  sortBtn2.innerHTML = "Sortera Typ";
+  sortBtn2.onclick = () => sortType();
   btnDiv.appendChild(sortBtn);
   btnDiv.appendChild(sortBtn2);
   rootDiv.appendChild(btnDiv);
@@ -38,6 +38,9 @@ export default async function RentList() {
             " | " +
             "Model: " +
             car.model +
+            " | " +
+            " Typ: " +
+            car.type +
             " | " +
             "Pris: " +
             car.price +
@@ -218,7 +221,7 @@ export default async function RentList() {
     }
   }
 
-  function sortModel() {
+  function sortType() {
     if (Bool !== true) {
       sortListC();
       Bool = true;
@@ -253,6 +256,9 @@ export default async function RentList() {
             "Model: " +
             car.model +
             " | " +
+            " Typ: " +
+            car.type +
+            " | " +
             "Pris: " +
             car.price +
             " kr/dygn";
@@ -284,7 +290,11 @@ export default async function RentList() {
                 myCars[getNodeID - 1].model;
               insideModalBody.innerText = myCars[getNodeID - 1].details;
               insideModalBody2.innerText =
-                " Pris: " + myCars[getNodeID - 1].price + " kr/dygn";
+                "Typ: " +
+                myCars[getNodeID - 1].type +
+                " | Pris: " +
+                myCars[getNodeID - 1].price +
+                " kr/dygn";
               modalRentBtn.onclick = () => fromModalGoToRentCar();
               displayModal();
             } else {
@@ -320,6 +330,9 @@ export default async function RentList() {
             "Model: " +
             car.model +
             " | " +
+            " Typ: " +
+            car.type +
+            " | " +
             "Pris: " +
             car.price +
             " kr/dygn";
@@ -350,7 +363,11 @@ export default async function RentList() {
                 myCars[getNodeID - 1].model;
               insideModalBody.innerText = myCars[getNodeID - 1].details;
               insideModalBody2.innerText =
-                " Pris: " + myCars[getNodeID - 1].price + " kr/dygn";
+                "Typ: " +
+                myCars[getNodeID - 1].type +
+                " | Pris: " +
+                myCars[getNodeID - 1].price +
+                " kr/dygn";
               modalRentBtn.onclick = () => fromModalGoToRentCar();
               displayModal();
             } else {
@@ -369,7 +386,7 @@ export default async function RentList() {
     fetch("http://localhost:8081/api/v1/cars", { credentials: "include" })
       .then((response) => response.json())
       .then((cars) => {
-        cars.sort((a, b) => a.model.localeCompare(b.model));
+        cars.sort((a, b) => a.type.localeCompare(b.type));
         cars.forEach((car) => {
           // myCars2.push(car);
           const carDiv = document.createElement("div");
@@ -385,69 +402,8 @@ export default async function RentList() {
             "Model: " +
             car.model +
             " | " +
-            "Pris: " +
-            car.price +
-            " kr/dygn";
-          newCar.classList.add(car.name + "-" + car.model);
-          let rentBtn = document.createElement("button");
-          rentBtn.classList.add("rentBtn");
-          rentBtn.innerHTML = "Hyr";
-          rentBtn.onclick = () => rentCar();
-          let detailsBtn = document.createElement("button");
-          detailsBtn.classList.add("detailsBtn");
-          detailsBtn.innerHTML = "Detaljer";
-          detailsBtn.onclick = () => SelectDiv();
-          carDiv.appendChild(newCar);
-          carDiv.appendChild(rentBtn);
-          carDiv.appendChild(detailsBtn);
-          carList.appendChild(carDiv);
-          rootDiv.appendChild(carList);
-
-          function SelectDiv() {
-            let getNodeID = event.currentTarget.parentNode.id;
-            // console.log(
-            //   "CAR ID: " + myCars[getNodeID - 1].id + " | NODE ID: " + getNodeID
-            // );
-            if (getNodeID == myCars[getNodeID - 1].id) {
-              modalHeaderH2.innerText =
-                myCars[getNodeID - 1].name +
-                " | " +
-                myCars[getNodeID - 1].model;
-              insideModalBody.innerText = myCars[getNodeID - 1].details;
-              insideModalBody2.innerText =
-                " Pris: " + myCars[getNodeID - 1].price + " kr/dygn";
-              modalRentBtn.onclick = () => fromModalGoToRentCar();
-              displayModal();
-            } else {
-              console.log("no hello for u");
-            }
-          }
-        });
-      });
-  }
-
-  function sortListD() {
-    let carList = document.querySelector(".carList");
-
-    while (carList.firstChild) carList.removeChild(carList.firstChild);
-
-    fetch("http://localhost:8081/api/v1/cars", { credentials: "include" })
-      .then((response) => response.json())
-      .then((cars) => {
-        cars.sort((a, b) => b.model.localeCompare(a.model));
-        cars.forEach((car) => {
-          const carDiv = document.createElement("div");
-          carDiv.id = car.id;
-          carDiv.classList.add("Cars");
-          carDiv.setAttribute("value", car.name);
-          const newCar = document.createElement("li");
-          newCar.append(car);
-          newCar.innerText =
-            "Märke: " +
-            car.name +
-            " | " +
-            "Model: " +
-            car.model +
+            " Typ: " +
+            car.type +
             " | " +
             "Pris: " +
             car.price +
@@ -479,7 +435,82 @@ export default async function RentList() {
                 myCars[getNodeID - 1].model;
               insideModalBody.innerText = myCars[getNodeID - 1].details;
               insideModalBody2.innerText =
-                " Pris: " + myCars[getNodeID - 1].price + " kr/dygn";
+                "Typ: " +
+                myCars[getNodeID - 1].type +
+                " | Pris: " +
+                myCars[getNodeID - 1].price +
+                " kr/dygn";
+              modalRentBtn.onclick = () => fromModalGoToRentCar();
+              displayModal();
+            } else {
+              console.log("no hello for u");
+            }
+          }
+        });
+      });
+  }
+
+  function sortListD() {
+    let carList = document.querySelector(".carList");
+
+    while (carList.firstChild) carList.removeChild(carList.firstChild);
+
+    fetch("http://localhost:8081/api/v1/cars", { credentials: "include" })
+      .then((response) => response.json())
+      .then((cars) => {
+        cars.sort((a, b) => b.type.localeCompare(a.type));
+        cars.forEach((car) => {
+          const carDiv = document.createElement("div");
+          carDiv.id = car.id;
+          carDiv.classList.add("Cars");
+          carDiv.setAttribute("value", car.name);
+          const newCar = document.createElement("li");
+          newCar.append(car);
+          newCar.innerText =
+            "Märke: " +
+            car.name +
+            " | " +
+            "Model: " +
+            car.model +
+            " | " +
+            " Typ: " +
+            car.type +
+            " | " +
+            "Pris: " +
+            car.price +
+            " kr/dygn";
+          newCar.classList.add(car.name + "-" + car.model);
+          let rentBtn = document.createElement("button");
+          rentBtn.classList.add("rentBtn");
+          rentBtn.innerHTML = "Hyr";
+          rentBtn.onclick = () => rentCar();
+          let detailsBtn = document.createElement("button");
+          detailsBtn.classList.add("detailsBtn");
+          detailsBtn.innerHTML = "Detaljer";
+          detailsBtn.onclick = () => SelectDiv();
+          carDiv.appendChild(newCar);
+          carDiv.appendChild(rentBtn);
+          carDiv.appendChild(detailsBtn);
+          carList.appendChild(carDiv);
+          rootDiv.appendChild(carList);
+
+          function SelectDiv() {
+            let getNodeID = event.currentTarget.parentNode.id;
+            console.log(
+              "CAR ID: " + myCars[getNodeID - 1].id + " | NODE ID: " + getNodeID
+            );
+            if (getNodeID == myCars[getNodeID - 1].id) {
+              modalHeaderH2.innerText =
+                myCars[getNodeID - 1].name +
+                " | " +
+                myCars[getNodeID - 1].model;
+              insideModalBody.innerText = myCars[getNodeID - 1].details;
+              insideModalBody2.innerText =
+                "Typ: " +
+                myCars[getNodeID - 1].type +
+                " | Pris: " +
+                myCars[getNodeID - 1].price +
+                " kr/dygn";
               modalRentBtn.onclick = () => fromModalGoToRentCar();
               displayModal();
             } else {
